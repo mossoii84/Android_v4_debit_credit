@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--создали свой турбар который нужно сделать include на клавной стр-->
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#4CCFE0"
+    android:elevation="4dp"
+    android:id="@+id/mytoolbaraoca"
+    app:theme="@style/AppTheme"
+    >
+    <!--  app:theme="@style/AppTheme"-->
+    <!--   главное это подключить стили(theme) из res/values/style-->
+    <!--  сюда приходят данные - стили, title и тп-->
+
+    <!--    <TextView-->
+<!--        android:id="@+id/titleForAoca"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/roboto_medium"-->
+<!--        android:text="Заголовок "-->
+<!--        android:textSize="25sp" />-->
+
+</androidx.appcompat.widget.Toolbar>

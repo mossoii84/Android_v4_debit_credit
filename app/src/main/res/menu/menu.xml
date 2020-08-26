@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/itemPlus"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="itemPlus"
+        app:showAsAction="ifRoom"/>
+    <!-- showAsAction определяет поведение меню в ActionBar,
+    Указывает, когда и как этот пункт должен отображаться в строке действий.
+    обязательный атрибут-->
+
+
+    <item
+        android:id="@+id/itemFilter_list"
+        android:icon="@drawable/ic_baseline_filter_list_24"
+        android:title="itemFlash"
+        app:showAsAction="ifRoom"/>
+
+
+
+    <item android:title="Item"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/item1"
+        android:icon="@drawable/abc_vector_test"
+        android:title="item 1"
+        app:showAsAction="never">
+        <menu>
+            <item android:id="@+id/subitem1"
+                android:title="Sub Item 1">
+            </item>
+        </menu>
+    </item>
+
+
+
+</menu>
