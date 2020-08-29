@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ActivitybtnPlus"
+            android:name=".AddItemActivity"
             android:label="@string/title_activity_activitybtn_plus"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
         </activity>
 
