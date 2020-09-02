@@ -14,10 +14,15 @@ import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
     private List<Category> categoryList = new ArrayList<>();
+    private OnCategoryClickListener categoryClickListener = null;
 
     public void updateList(List<Category> categoryList) {
         this.categoryList = categoryList;
         notifyDataSetChanged();
+    }
+
+    public void setOnCategoryClickListener(OnCategoryClickListener listener) {
+        categoryClickListener = listener;
     }
 
     @NonNull
@@ -30,6 +35,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         holder.bind(categoryList.get(position));
+        holder.setListeners(categoryClickListener);
     }
 
     @Override

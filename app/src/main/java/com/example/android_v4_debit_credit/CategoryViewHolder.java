@@ -10,6 +10,7 @@ import com.example.android_v4_debit_credit.data.Category;
 
 public class CategoryViewHolder extends RecyclerView.ViewHolder {
     private TextView categoryView;
+    private Category currentCategory;
 
     public CategoryViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -17,6 +18,16 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Category category) {
+        currentCategory = category;
         categoryView.setText(category.getName());
+    }
+
+    public void setListeners(final OnCategoryClickListener listener) {
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onCategoryClick(currentCategory);
+            }
+        });
     }
 }

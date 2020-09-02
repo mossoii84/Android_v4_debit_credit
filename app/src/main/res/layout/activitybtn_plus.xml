@@ -115,6 +115,7 @@
                 android:id="@+id/inputCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:hint="Choose item below" />
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class AddItemActivity extends AppCompatActivity {
     TextView textExpense;
     TextView textProfit;
     RecyclerView recycler;
+    EditText inputCategory;
     CategoryAdapter adapter = new CategoryAdapter();
 
     @Override
@@ -41,9 +43,19 @@ public class AddItemActivity extends AppCompatActivity {
         profitVisibleLinearList();
         btnTextCancel();
 
+        inputCategory = findViewById(R.id.inputCategory);
+        inputCategory.setEnabled(false);
+
         recycler = findViewById(R.id.rv_category_list);
         recycler.setLayoutManager(new LinearLayoutManager(getBaseContext(), RecyclerView.HORIZONTAL, false));
         recycler.setAdapter(adapter);
+
+        adapter.setOnCategoryClickListener(new OnCategoryClickListener() {
+            @Override
+            public void onCategoryClick(Category category) {
+                inputCategory.setText(category.getName());
+            }
+        });
 
         adapter.updateList(getCategoryList());
 
