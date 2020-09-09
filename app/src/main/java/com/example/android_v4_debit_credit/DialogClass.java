@@ -18,10 +18,10 @@ public class DialogClass extends DialogFragment {
             builder.setTitle("Are you sure?");
             builder.setMessage("If you cancel, you will lose your data");
             builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // FIRE ZE MISSILES!
-                        }
-                    })
+                public void onClick(DialogInterface dialog, int id) {
+                    // FIRE ZE MISSILES!
+                }
+            })
                     .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             // User cancelled the dialog
@@ -30,6 +30,8 @@ public class DialogClass extends DialogFragment {
             // Create the AlertDialog object and return it
             return builder.create();
         }
-    }
 
 
+
+
+}

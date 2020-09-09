@@ -2,6 +2,8 @@ package com.example.android_v4_debit_credit;
 
 import androidx.annotation.IntegerRes;
 
+
+// это класс не используем больше
 public class NewsItems {
     private String title;
     private String description;

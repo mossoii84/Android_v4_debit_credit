@@ -1,5 +1,7 @@
-<resources>
 
+
+
+<resources>
     <!--    задаем title  надпись для toolbar-->
     <string name="app_name">Android_v4_debit_credit</string>
     <string name="title_activity_btn_plus">btnPlus</string>

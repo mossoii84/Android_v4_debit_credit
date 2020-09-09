@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp">
+
+    <TextView
+        android:id="@+id/tv_category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="4dp"
+        tools:text="Cash back2" />
+
+</androidx.cardview.widget.CardView>

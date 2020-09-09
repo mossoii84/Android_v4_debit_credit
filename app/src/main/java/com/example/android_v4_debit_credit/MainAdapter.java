@@ -3,23 +3,21 @@ package com.example.android_v4_debit_credit;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.example.android_v4_debit_credit.classes.Money;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterForNewsItems extends RecyclerView.Adapter<MainItemViewHolder>  implements View.OnClickListener {
+public class MainAdapter extends RecyclerView.Adapter<MainItemViewHolder>  implements View.OnClickListener {
     private List<Money> moneyList = new ArrayList<>();
 
     @Override
     public void onClick(View view) { }
-
 
     // Метод для обновления списка, если у нас изменился список и мы хотим показать актуальный список
     public void updateList(List<Money> moneyList) {
@@ -47,6 +45,9 @@ public class AdapterForNewsItems extends RecyclerView.Adapter<MainItemViewHolder
     }
 
 
+
+
+
     @Override
     public void onBindViewHolder(@NonNull MainItemViewHolder holder, int position) {
         // Здесь мы просто вызываем метод для соединения данных и вьюшки, передаем туда необходимый объект
@@ -59,10 +60,5 @@ public class AdapterForNewsItems extends RecyclerView.Adapter<MainItemViewHolder
     public int getItemCount() {
         return moneyList.size();
     }
-
-
-
-
-
 
 }
