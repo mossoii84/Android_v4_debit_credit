@@ -1,37 +1,30 @@
 package com.example.android_v4_debit_credit;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
-
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.android_v4_debit_credit.data.Category;
+import com.example.android_v4_debit_credit.data.Money;
+
 import java.util.ArrayList;
+import java.util.Date;
 
 import static com.example.android_v4_debit_credit.R.id.itemPlus;
+
 public class MainActivity extends AppCompatActivity {
 
     //Вариант 2 с классом  NewsItems
-    private ArrayList<NewsItems> items= new ArrayList<>();
+    private ArrayList<Money> items = new ArrayList<>();
     private RecyclerView recyclerView;
-    private AdapterForNewsItems adapterForNewsItems;
-
-
-    //переход на активити при нажатии кнопки (+)
-    private Button btnActivitybtnPlus;
-
+    private MainAdapter mainAdapter;
 
 
     @SuppressLint({"ResourceType", "WrongViewCast"})
@@ -40,39 +33,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // активируем наш турбар для всех, добавить правильный импорт import androidx.appcompat.widget.Toolbar;
-        Toolbar toolbar = (Toolbar) findViewById(R.id.mytoolbaraoca);
-        setSupportActionBar(toolbar);
-        MainActivity.this.setTitle("Aoca"); // задали загаловок toorbar
-
+        setTitle("Aoca"); // задали загаловок toorbar
 
 
         //Вариант 2 с классом NewsItems (вместо адаптера)
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         // создаем адаптер
-        adapterForNewsItems = new AdapterForNewsItems(this, items);  //item это как бы данные указанных переменных
+        mainAdapter = new MainAdapter();
         // устанавливаем для списка адаптер
-        recyclerView.setAdapter(adapterForNewsItems);
+        recyclerView.setAdapter(mainAdapter);
 
         //дополнение мои статическая БД от класса NewsItems
         {
-            items.add(new NewsItems(
-                    "Podcast 256: You down with GPT-3? Yeah you know me!",
-                    "The post Podcast 256"
-                    ));
-            items.add(new NewsItems(
-                    "Brian Gilmartin, CFA",
-                    "CME  Volatility"
-
-                    ));
-            items.add(new NewsItems(
-                    "Cointelegraph By",
-                    "Developers  2.0 on July 27"
-                    ));
+            items.add(new Money(
+                new Category("Cash back"),
+                "+ 400 руб.",
+                new Date()
+            ));
+            items.add(new Money(
+                new Category("Products"),
+                "- 400 руб.",
+                new Date(1598336735L * 1000)
+            ));
+            items.add(new Money(
+                new Category("Salary"),
+                "+ 100000 руб.",
+                new Date()
+            ));
         }
+        mainAdapter.updateList(items);
     }
-
 
 
     @Override   // ставим верхнее меню
@@ -83,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     //    переход на другую страницу при нажатии на кнопку (в данном случаи +)
     // onOptionsItemSelected - обязательное использование данного метода при нажатии на меню
     @Override
@@ -91,15 +81,11 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         // itemPlus -  добавил над классом import static com.example.android_v3_appmenu.R.id.itemPlus;
         if (id == itemPlus) {
-            Intent intent= new Intent(this, ActivitybtnPlus.class);
+            Intent intent = new Intent(this, AddItemActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 
 
     //При нажатии появляется/проподает выпадающее боковая панель
@@ -118,11 +104,6 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
-
-
-
-
-
 
 
 }
