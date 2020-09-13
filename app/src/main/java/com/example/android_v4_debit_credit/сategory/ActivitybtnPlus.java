@@ -1,7 +1,6 @@
 package com.example.android_v4_debit_credit.сategory;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_v4_debit_credit.DialogClass;
-import com.example.android_v4_debit_credit.MainActivity;
 import com.example.android_v4_debit_credit.R;
 import com.example.android_v4_debit_credit.classes.Category;
 import com.example.android_v4_debit_credit.classes.Money;

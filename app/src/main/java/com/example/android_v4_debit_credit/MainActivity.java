@@ -32,16 +32,11 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MainAdapter mainAdapter;
 
-    public Button button_insert;
-    public EditText editText;
-    Category category;
-
     //сохроняем состояние
     SharedPreferences sPref;
     final String SAVED_TEXT = "saved_text";
     Button buttonDelete;
-    String myCategory;
-    String amount;
+
 
 
     @Override
@@ -59,42 +54,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mainAdapter);
         mainAdapter.updateList(items);
 
-        //сохраняем в массив при нажатии Add
-//        button_insert = findViewById(R.id.button_add);
-//        button_insert.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //Получаем наши введенные данные и приобрезауем их
-//                amount = editText.getText().toString();
-//                //зановим их в наш ArrayList (массив)
-//                items.add(new Money(new Category(myCategory),amount));
-//
-//                //обновляем наш список
-//                mainAdapter.updateList(items);
-//                //всплывающее надпись
-////                Toast.makeText(MainActivity.this, amount, Toast.LENGTH_LONG).show();
-//
-//                saveDataInArray();
-//            }
-//        });
 
         loadDataInArray();
         deleteAllItems();
     }
 
-    //СОХРАНЕНИЕ СОСТОЯНИЯ  Вариант 2-A
-    private void saveDataInArray(){
-        sPref = getSharedPreferences("MyFile",MODE_PRIVATE);
-        SharedPreferences.Editor ed = sPref.edit();
-        //добавили стандарный класс
-        Gson gson = new Gson();
-        //передали наш массив
-        String json = gson.toJson(items);
-        //SAVED_TEXT - это ключ, json - наше значение
-        ed.putString("SAVED_TEXT", json).apply();
-
-        Toast.makeText(MainActivity.this, json, Toast.LENGTH_SHORT).show();
-    }
     private void loadDataInArray(){
         sPref = getSharedPreferences("MyFile",MODE_PRIVATE);
         Gson gson = new Gson();
@@ -107,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         }else{
             mainAdapter.updateList(items);
         }
-        Toast.makeText(MainActivity.this, items+"", Toast.LENGTH_SHORT).show();
     }
     //Уничтожаем ВСЕ сохраненные состояния
     private void deleteAllItems(){
@@ -120,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                 mainAdapter.updateList(items);
             }
         });
-        Toast.makeText(MainActivity.this, items+"удаляем", Toast.LENGTH_SHORT).show();
     }
 
 
