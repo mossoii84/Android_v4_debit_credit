@@ -2,13 +2,13 @@
 <resources>
 
     <color name="colorPrimary">#4CCFE0</color>
-    <color name="colorPrimaryDark">#02535E</color>
+    <color name="colorPrimaryDark">#00414A</color>
     <color name="colorAccent">#6C042A</color>
 
 
     <color name="commonTextColor">#000000</color>
     <color name="positiveColor">#4CAF50</color>
-    <color name="negativeColor">#FF5722</color>
+    <color name="negativeColor">#FF224E</color>
     <color name="white">#FFFFFF</color>
-
+    <color name="black">#000</color>
 </resources>

@@ -10,34 +10,3 @@
         <item name="android:textColor">@color/commonTextColor</item>
     </style>
 </resources>
-
-
-
-
-<!--<resources>-->
-<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
-<!--&lt;!&ndash;        <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">&ndash;&gt;-->
-<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
-<!--            &lt;!&ndash; цвет толбара, вообще почему то он указан в созданом xml тулбара,тк это добавленный турбар &ndash;&gt;-->
-<!--            <item name="colorPrimary">#4CCFE0</item>-->
-<!--        &lt;!&ndash; цвет самой верхней полоски где значки вифи и батарейки&ndash;&gt;-->
-<!--        <item name="colorPrimaryDark">#0a4d5c</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--    </style>-->
-
-
-<!--&lt;!&ndash;    Это стили для второй страницы ActivitybtnPlus&ndash;&gt;-->
-<!--    <style name="AppTheme.Plus" parent="Theme.AppCompat.Light.NoActionBar">-->
-<!--        <item name="colorPrimary">#4CCFE0</item>-->
-<!--        <item name="colorPrimaryDark">#0a4d5c</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--    </style>-->
-
-
-<!--    <style name="AppTheme.NoActionBar">-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
-<!--    </style>-->
-
-
-<!--</resources>-->

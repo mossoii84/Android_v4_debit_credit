@@ -21,8 +21,8 @@
             android:id="@+id/tv_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            tools:text="+400 руб." />
+            android:layout_marginLeft="10dp"
+            tools:text="+ 400руб." />
 
         <TextView
             android:id="@+id/tv_category_name"

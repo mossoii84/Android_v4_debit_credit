@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_v4_debit_credit.classes.Money;
@@ -30,10 +31,16 @@ public class MainItemViewHolder  extends RecyclerView.ViewHolder{
     }
 
     public void bind(Money money) {
-        amountView.setText(money.getAmount());
+        if (money.getAmount().charAt(0) == '+') {
+            amountView.setTextColor(ContextCompat.getColor(itemView.getContext(), R.color.positiveColor));
+        } else {
+            amountView.setTextColor(ContextCompat.getColor(itemView.getContext(), R.color.negativeColor));
+        }
+        amountView.setText(money.getAmount() + " руб");
         categoryView.setText(money.getCategory().getName());
         dateView.setText(format.format(money.getDate()));
     }
+
 
 
 
