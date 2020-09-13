@@ -25,14 +25,14 @@ public class MainItemViewHolder  extends RecyclerView.ViewHolder{
     public MainItemViewHolder(@NonNull View itemView) {
         super(itemView);
         amountView = itemView.findViewById(R.id.tv_cost);
-//        categoryView = itemView.findViewById(R.id.tv_category_name);
-//        dateView = itemView.findViewById(R.id.tv_date);
+        categoryView = itemView.findViewById(R.id.tv_category_name);
+        dateView = itemView.findViewById(R.id.tv_date);
     }
 
     public void bind(Money money) {
         amountView.setText(money.getAmount());
-//        categoryView.setText(money.getCategory().getName());
-//        dateView.setText(format.format(money.getDate()));
+        categoryView.setText(money.getCategory().getName());
+        dateView.setText(format.format(money.getDate()));
     }
 
 
