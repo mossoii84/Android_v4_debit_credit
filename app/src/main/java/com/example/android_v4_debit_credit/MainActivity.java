@@ -8,14 +8,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android_v4_debit_credit.classes.Category;
 import com.example.android_v4_debit_credit.classes.Money;
 import com.example.android_v4_debit_credit.сategory.ActivitybtnPlus;
 import com.google.gson.Gson;
@@ -23,6 +21,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import static com.example.android_v4_debit_credit.R.id.itemPlus;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sPref;
     final String SAVED_TEXT = "saved_text";
     Button buttonDelete;
-
-
+    //сортировка списка по дате и тп
+    ImageView image_Sort123;
+    boolean x = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +56,42 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mainAdapter);
         mainAdapter.updateList(items);
 
-
+        //загрузка сохранения состоянии и удаление состояния
         loadDataInArray();
         deleteAllItems();
-    }
 
+        //Сортировка списка
+        image_Sort123 = findViewById(R.id.image_Sort123);
+        image_Sort123.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(x) {
+                    Collections.sort(items, new Comparator<Money>() {
+                        @Override
+                        public int compare(Money it1, Money it2) {
+                            image_Sort123.setImageResource(R.drawable.ic_baseline_expand_more_24); //меняем картинку внутри кнопки
+                            image_Sort123.setBackgroundResource(R.drawable.circlebuttonmore);
+                            x=false;
+                            return it1.getAmount().compareTo(it2.getAmount()); }});
+                }
+                else if(!x) {
+                    Collections.sort(items, new Comparator<Money>() {
+                        @Override
+                        public int compare(Money it1, Money it2) {
+                            image_Sort123.setImageResource(R.drawable.ic_baseline_expand_less_24);
+                            image_Sort123.setBackgroundResource(R.drawable.circlebuttonless);
+                            x=true;
+                            return it2.getAmount().compareTo(it1.getAmount()); }});
+                }
+                mainAdapter.updateList(items);
+            } });
+
+}
+
+
+
+
+            //сохранение состоянии, загружаем данные со стр - Activitybtn_plus.xml
     private void loadDataInArray(){
         sPref = getSharedPreferences("MyFile",MODE_PRIVATE);
         Gson gson = new Gson();
